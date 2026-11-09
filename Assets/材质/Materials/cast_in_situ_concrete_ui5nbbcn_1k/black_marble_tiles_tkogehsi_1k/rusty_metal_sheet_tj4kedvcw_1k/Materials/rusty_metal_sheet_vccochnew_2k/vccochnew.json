@@ -1,0 +1,617 @@
+{
+  "assetCategories": {
+    "surface": {
+      "metal": {
+        "corroded": {},
+        "sheet": {}
+      }
+    }
+  },
+  "averageColor": "#000000",
+  "categories": [
+    "surface",
+    "metal",
+    "corroded"
+  ],
+  "comp_version": 1,
+  "description": "",
+  "displacementBias": 0.707247,
+  "displacementCalibrationAccuracy": 0.991672,
+  "displacementScale": 2.574723,
+  "environment": {
+    "biome": "industrial",
+    "region": "Asia"
+  },
+  "highest_available_res": 8192,
+  "id": "vccochnew",
+  "json": {
+    "contentLength": 12984,
+    "uri": "vccochnew.json"
+  },
+  "maps": [
+    {
+      "averageColor": "#FDFDFD",
+      "bitDepth": 32,
+      "colorSpace": "sRGB",
+      "contentLength": 170362413,
+      "maxIntensity": 255,
+      "mimeType": "image/x-exr",
+      "minIntensity": 223,
+      "name": "AO",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "ao",
+      "uri": "vccochnew_8K_AO.exr"
+    },
+    {
+      "averageColor": "#FDFDFD",
+      "bitDepth": 8,
+      "colorSpace": "sRGB",
+      "contentLength": 12936929,
+      "maxIntensity": 255,
+      "mimeType": "image/jpeg",
+      "minIntensity": 223,
+      "name": "AO",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "ao",
+      "uri": "vccochnew_8K_AO.jpg"
+    },
+    {
+      "averageColor": "#6B4F39",
+      "bitDepth": 16,
+      "colorSpace": "sRGB",
+      "contentLength": 251418416,
+      "maxIntensity": 133,
+      "mimeType": "image/x-exr",
+      "minIntensity": 55,
+      "name": "Basecolor",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "basecolor",
+      "uri": "vccochnew_8K_Basecolor.exr"
+    },
+    {
+      "averageColor": "#6B4F39",
+      "bitDepth": 8,
+      "colorSpace": "sRGB",
+      "contentLength": 53614006,
+      "maxIntensity": 133,
+      "mimeType": "image/jpeg",
+      "minIntensity": 55,
+      "name": "Basecolor",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "basecolor",
+      "uri": "vccochnew_8K_Basecolor.jpg"
+    },
+    {
+      "averageColor": "#808080",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 196943404,
+      "maxIntensity": 255,
+      "mimeType": "image/x-exr",
+      "minIntensity": 0,
+      "name": "Bump",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "bump",
+      "uri": "vccochnew_8K_Bump.exr"
+    },
+    {
+      "averageColor": "#808080",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 16830849,
+      "maxIntensity": 255,
+      "mimeType": "image/jpeg",
+      "minIntensity": 0,
+      "name": "Bump",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "bump",
+      "uri": "vccochnew_8K_Bump.jpg"
+    },
+    {
+      "averageColor": "#FFFFFF",
+      "bitDepth": 32,
+      "colorSpace": "sRGB",
+      "contentLength": 211714152,
+      "maxIntensity": 255,
+      "mimeType": "image/x-exr",
+      "minIntensity": 255,
+      "name": "Cavity",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "cavity",
+      "uri": "vccochnew_8K_Cavity.exr"
+    },
+    {
+      "averageColor": "#FFFFFF",
+      "bitDepth": 8,
+      "colorSpace": "sRGB",
+      "contentLength": 44157861,
+      "maxIntensity": 255,
+      "mimeType": "image/jpeg",
+      "minIntensity": 255,
+      "name": "Cavity",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "cavity",
+      "uri": "vccochnew_8K_Cavity.jpg"
+    },
+    {
+      "averageColor": "#7D7D7D",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 253359318,
+      "maxIntensity": 140,
+      "mimeType": "image/x-exr",
+      "minIntensity": 97,
+      "name": "Displacement",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "displacement",
+      "uri": "vccochnew_8K_Displacement.exr"
+    },
+    {
+      "averageColor": "#7D7D7D",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 3843852,
+      "maxIntensity": 140,
+      "mimeType": "image/jpeg",
+      "minIntensity": 97,
+      "name": "Displacement",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "displacement",
+      "uri": "vccochnew_8K_Displacement.jpg"
+    },
+    {
+      "averageColor": "#414141",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 197043445,
+      "maxIntensity": 117,
+      "mimeType": "image/x-exr",
+      "minIntensity": 25,
+      "name": "Gloss",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "gloss",
+      "uri": "vccochnew_8K_Gloss.exr"
+    },
+    {
+      "averageColor": "#414141",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 43566165,
+      "maxIntensity": 117,
+      "mimeType": "image/jpeg",
+      "minIntensity": 25,
+      "name": "Gloss",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "gloss",
+      "uri": "vccochnew_8K_Gloss.jpg"
+    },
+    {
+      "averageColor": "#8181FE",
+      "bitDepth": 16,
+      "colorSpace": "Linear",
+      "contentLength": 188023811,
+      "maxIntensity": 159,
+      "mimeType": "image/x-exr",
+      "minIntensity": 123,
+      "name": "Normal",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "normal",
+      "uri": "vccochnew_8K_Normal.exr"
+    },
+    {
+      "averageColor": "#8181FE",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 67143650,
+      "maxIntensity": 159,
+      "mimeType": "image/jpeg",
+      "minIntensity": 123,
+      "name": "Normal",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "normal",
+      "uri": "vccochnew_8K_Normal.jpg"
+    },
+    {
+      "averageColor": "#BEBEBE",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 186927089,
+      "maxIntensity": 230,
+      "mimeType": "image/x-exr",
+      "minIntensity": 138,
+      "name": "Roughness",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "roughness",
+      "uri": "vccochnew_8K_Roughness.exr"
+    },
+    {
+      "averageColor": "#BEBEBE",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 42363881,
+      "maxIntensity": 230,
+      "mimeType": "image/jpeg",
+      "minIntensity": 138,
+      "name": "Roughness",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "roughness",
+      "uri": "vccochnew_8K_Roughness.jpg"
+    },
+    {
+      "averageColor": "#383838",
+      "bitDepth": 16,
+      "colorSpace": "sRGB",
+      "contentLength": 232389293,
+      "maxIntensity": 56,
+      "mimeType": "image/x-exr",
+      "minIntensity": 56,
+      "name": "Specular",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "specular",
+      "uri": "vccochnew_8K_Specular.exr"
+    },
+    {
+      "averageColor": "#383838",
+      "bitDepth": 8,
+      "colorSpace": "sRGB",
+      "contentLength": 26250207,
+      "maxIntensity": 56,
+      "mimeType": "image/jpeg",
+      "minIntensity": 56,
+      "name": "Specular",
+      "physicalSize": "2x2",
+      "resolution": "8192x8192",
+      "type": "specular",
+      "uri": "vccochnew_8K_Specular.jpg"
+    }
+  ],
+  "meta": [
+    {
+      "key": "scanArea",
+      "name": "Scan Area",
+      "value": "2x2 m"
+    },
+    {
+      "key": "height",
+      "name": "Height",
+      "value": "0.034 m"
+    },
+    {
+      "key": "tileable",
+      "name": "Tileable",
+      "value": true
+    },
+    {
+      "key": "tiling_directions",
+      "name": "Tiling Directions",
+      "value": [
+        "x",
+        "y"
+      ]
+    },
+    {
+      "key": "texelDensity",
+      "name": "Texel Density",
+      "value": "4096 px/m"
+    },
+    {
+      "key": "calibration",
+      "name": "Calibration",
+      "value": "GretagMacbeth ColorChecker Color Rendition Chart"
+    },
+    {
+      "key": "scanner",
+      "name": "Scanner",
+      "value": "MKX"
+    }
+  ],
+  "models": [],
+  "name": "Rusty Metal Sheet",
+  "pack": {
+    "_id": "industrial-metals",
+    "name": "Industrial Metals"
+  },
+  "physicalSize": null,
+  "points": 2,
+  "previews": {
+    "images": [
+      {
+        "contentLength": 270075,
+        "resolution": "360x360",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "vccochnew_Grid_360.png"
+      },
+      {
+        "contentLength": 367164,
+        "resolution": "420x420",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "vccochnew_Grid_420.png"
+      },
+      {
+        "contentLength": 1096093,
+        "resolution": "720x720",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "vccochnew_Grid_720.png"
+      },
+      {
+        "contentLength": 1498346,
+        "resolution": "840x840",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "vccochnew_Grid_840.png"
+      },
+      {
+        "contentLength": 2410908,
+        "resolution": "1440x768",
+        "tags": [
+          "preview",
+          "clay"
+        ],
+        "uri": "vccochnew_PopupClay_1440.png"
+      },
+      {
+        "contentLength": 4554146,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview",
+          "clay"
+        ],
+        "uri": "vccochnew_PopupClay_1920.png"
+      },
+      {
+        "contentLength": 9997244,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "clay",
+          "retina"
+        ],
+        "uri": "vccochnew_PopupClay_2880.png"
+      },
+      {
+        "contentLength": 19307195,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "clay",
+          "retina"
+        ],
+        "uri": "vccochnew_PopupClay_3840.png"
+      },
+      {
+        "contentLength": 3195587,
+        "resolution": "1440x768",
+        "tags": [
+          "preview",
+          "tiled"
+        ],
+        "uri": "vccochnew_PopupTiled_1440.png"
+      },
+      {
+        "contentLength": 5979687,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview",
+          "tiled"
+        ],
+        "uri": "vccochnew_PopupTiled_1920.png"
+      },
+      {
+        "contentLength": 12777859,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "tiled",
+          "retina"
+        ],
+        "uri": "vccochnew_PopupTiled_2880.png"
+      },
+      {
+        "contentLength": 24370185,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "tiled",
+          "retina"
+        ],
+        "uri": "vccochnew_PopupTiled_3840.png"
+      },
+      {
+        "contentLength": 3198577,
+        "resolution": "1440x768",
+        "tags": [
+          "preview"
+        ],
+        "uri": "vccochnew_Popup_1440.png"
+      },
+      {
+        "contentLength": 6017578,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview"
+        ],
+        "uri": "vccochnew_Popup_1920.png"
+      },
+      {
+        "contentLength": 12947792,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "vccochnew_Popup_2880.png"
+      },
+      {
+        "contentLength": 24899202,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "vccochnew_Popup_3840.png"
+      }
+    ],
+    "relativeSize": "1x1",
+    "scaleReferences": []
+  },
+  "process_date": "2024-04-17 00:22:06",
+  "properties": [],
+  "referencePreviews": {
+    "maps": [],
+    "models": []
+  },
+  "references": [],
+  "revised": false,
+  "revision": 0,
+  "semanticTags": {
+    "architectural_style": {},
+    "asset_type": "surface",
+    "city": "Islamabad",
+    "color": [
+      "Black",
+      "Gray",
+      "Brown"
+    ],
+    "contains": [
+      "metal",
+      "sheet",
+      "rust",
+      "deposits",
+      "scratches",
+      "stains"
+    ],
+    "country": "Pakistan",
+    "descriptive": [
+      "rough",
+      "worn",
+      "scratched",
+      "rusty",
+      "corroded",
+      "dirty"
+    ],
+    "environment": [
+      "industrial",
+      "rural"
+    ],
+    "industry": [
+      "games",
+      "archviz",
+      "VFX"
+    ],
+    "interior_exterior": [
+      "exterior"
+    ],
+    "locations": {
+      "Asia": {
+        "Pakistan": {
+          "Islamabad": {}
+        }
+      }
+    },
+    "maxSize": 2,
+    "minSize": 2,
+    "name": "Rusty Metal Sheet",
+    "orientation": [
+      "floor"
+    ],
+    "region": "Asia",
+    "state": [
+      "old",
+      "damaged"
+    ],
+    "subject_matter": "manmade",
+    "theme": [
+      "industrial",
+      "industry",
+      "factory",
+      "Brick factory",
+      "containers",
+      "steel works",
+      "metal flooring"
+    ]
+  },
+  "tags": [
+    "black",
+    "gray",
+    "brown",
+    "dumpster",
+    "industrial",
+    "industry",
+    "constructional",
+    "factory",
+    "metal",
+    "sheet",
+    "rust",
+    "dust",
+    "dirt",
+    "rough",
+    "worn",
+    "scratched",
+    "rusty",
+    "dusty",
+    "corroded"
+  ],
+  "texelDensity": 4096,
+  "texture_type": "basic",
+  "ue_plugin_archives": [
+    {
+      "contentLength": 284171507,
+      "gltfVersion": "2.0",
+      "tier": 0,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_0/vccochnew_tier_0.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 90452341,
+      "gltfVersion": "2.0",
+      "tier": 1,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_1/vccochnew_tier_1.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 23340161,
+      "gltfVersion": "2.0",
+      "tier": 2,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_2/vccochnew_tier_2.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 1906236,
+      "gltfVersion": "2.0",
+      "tier": 3,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_3/vccochnew_tier_3.zip",
+      "version": 1
+    }
+  ],
+  "version": 2
+}

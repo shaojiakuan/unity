@@ -1,0 +1,276 @@
+{
+  "assetCategories": {
+    "imperfection": {
+      "rubber": {}
+    }
+  },
+  "averageColor": "#808080",
+  "categories": [
+    "surface",
+    "Imperfections",
+    "Damage"
+  ],
+  "comp_version": 1,
+  "description": "",
+  "environment": {
+    "biome": "undefined",
+    "region": "undefined"
+  },
+  "highest_available_res": 8192,
+  "id": "tedmfbkc",
+  "json": {
+    "contentLength": 5812,
+    "uri": "tedmfbkc.json"
+  },
+  "maps": [
+    {
+      "averageColor": "#7E7E7E",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 137467105,
+      "maxIntensity": 255,
+      "mimeType": "image/x-exr",
+      "minIntensity": 78,
+      "name": "Gloss",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "gloss",
+      "uri": "tedmfbkc_8K_Gloss.exr"
+    },
+    {
+      "averageColor": "#7E7E7E",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 45539340,
+      "maxIntensity": 255,
+      "mimeType": "image/jpeg",
+      "minIntensity": 78,
+      "name": "Gloss",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "gloss",
+      "uri": "tedmfbkc_8K_Gloss.jpg"
+    },
+    {
+      "averageColor": "#818181",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 117695910,
+      "maxIntensity": 177,
+      "mimeType": "image/x-exr",
+      "minIntensity": 0,
+      "name": "Roughness",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "roughness",
+      "uri": "tedmfbkc_8K_Roughness.exr"
+    },
+    {
+      "averageColor": "#818181",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 45712540,
+      "maxIntensity": 177,
+      "mimeType": "image/jpeg",
+      "minIntensity": 0,
+      "name": "Roughness",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "roughness",
+      "uri": "tedmfbkc_8K_Roughness.jpg"
+    }
+  ],
+  "meta": [
+    {
+      "key": "scanArea",
+      "name": "Scan Area",
+      "value": "1x1 m"
+    },
+    {
+      "key": "height",
+      "name": "Height",
+      "value": "20 m"
+    },
+    {
+      "key": "tileable",
+      "name": "Tileable",
+      "value": true
+    },
+    {
+      "key": "texelDensity",
+      "name": "Texel Density",
+      "value": "8192 px/m"
+    },
+    {
+      "key": "calibration",
+      "name": "Calibration",
+      "value": "GretagMacbeth ColorChecker Color Rendition Chart"
+    },
+    {
+      "key": "scanner",
+      "name": "Scanner",
+      "value": "MKX"
+    }
+  ],
+  "models": [],
+  "name": "Scratched Rubber",
+  "pack": null,
+  "physicalSize": null,
+  "points": 1,
+  "previews": {
+    "images": [
+      {
+        "contentLength": 140867,
+        "resolution": "360x360",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "tedmfbkc_Grid_360.png"
+      },
+      {
+        "contentLength": 190764,
+        "resolution": "420x420",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "tedmfbkc_Grid_420.png"
+      },
+      {
+        "contentLength": 548396,
+        "resolution": "720x720",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "tedmfbkc_Grid_720.png"
+      },
+      {
+        "contentLength": 747822,
+        "resolution": "840x840",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "tedmfbkc_Grid_840.png"
+      },
+      {
+        "contentLength": 1480768,
+        "resolution": "1440x768",
+        "tags": [
+          "preview"
+        ],
+        "uri": "tedmfbkc_Popup_1440.png"
+      },
+      {
+        "contentLength": 2732112,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview"
+        ],
+        "uri": "tedmfbkc_Popup_1920.png"
+      },
+      {
+        "contentLength": 5781879,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "tedmfbkc_Popup_2880.png"
+      },
+      {
+        "contentLength": 11076878,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "tedmfbkc_Popup_3840.png"
+      }
+    ],
+    "relativeSize": "1x1",
+    "scaleReferences": []
+  },
+  "process_date": "2024-04-17 10:44:54",
+  "properties": [],
+  "referencePreviews": {
+    "maps": [],
+    "models": []
+  },
+  "references": [],
+  "revised": false,
+  "semanticTags": {
+    "3d_mesh": [],
+    "architectural_style": {},
+    "asset_type": "imperfection",
+    "contains": [
+      "scratches",
+      "rubber"
+    ],
+    "descriptive": [
+      "rubber",
+      " scratched"
+    ],
+    "industry": [
+      "games",
+      "archviz",
+      "VFX"
+    ],
+    "latin_name": [],
+    "locations": {
+      "Global": {
+        "Global": {}
+      }
+    },
+    "maxSize": 1,
+    "minSize": 1,
+    "name": "Scratched Rubber",
+    "resolution": 8192,
+    "season": [],
+    "subject_matter": "manmade",
+    "theme": [
+      ""
+    ]
+  },
+  "tags": [
+    "surface imperfection",
+    "archviz"
+  ],
+  "texelDensity": 8192,
+  "texture_type": "basic",
+  "ue_plugin_archives": [
+    {
+      "contentLength": 77439287,
+      "gltfVersion": "2.0",
+      "tier": 0,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_0/tedmfbkc_tier_0.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 21297792,
+      "gltfVersion": "2.0",
+      "tier": 1,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_1/tedmfbkc_tier_1.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 5282745,
+      "gltfVersion": "2.0",
+      "tier": 2,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_2/tedmfbkc_tier_2.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 1822288,
+      "gltfVersion": "2.0",
+      "tier": 3,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_3/tedmfbkc_tier_3.zip",
+      "version": 1
+    }
+  ],
+  "version": 2
+}

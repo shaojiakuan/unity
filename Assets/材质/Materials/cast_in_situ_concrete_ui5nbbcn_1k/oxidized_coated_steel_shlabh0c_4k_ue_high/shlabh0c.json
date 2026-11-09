@@ -1,0 +1,266 @@
+{
+  "assetCategories": {
+    "imperfection": {
+      "metal": {
+        "clean": {}
+      }
+    }
+  },
+  "averageColor": "#808080",
+  "categories": [
+    "surface",
+    "Imperfections",
+    "Grunge"
+  ],
+  "comp_version": 1,
+  "description": "",
+  "environment": {
+    "biome": "undefined",
+    "region": "undefined"
+  },
+  "highest_available_res": 4096,
+  "id": "shlabh0c",
+  "json": {
+    "contentLength": 5643,
+    "uri": "shlabh0c.json"
+  },
+  "maps": [
+    {
+      "averageColor": "#7B7B7B",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 25033966,
+      "maxIntensity": 174,
+      "mimeType": "image/x-exr",
+      "minIntensity": 73,
+      "name": "Gloss",
+      "physicalSize": "0.5x0.5",
+      "resolution": "4096x4096",
+      "type": "gloss",
+      "uri": "shlabh0c_4K_Gloss.exr"
+    },
+    {
+      "averageColor": "#7B7B7B",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 5782942,
+      "maxIntensity": 174,
+      "mimeType": "image/jpeg",
+      "minIntensity": 73,
+      "name": "Gloss",
+      "physicalSize": "0.5x0.5",
+      "resolution": "4096x4096",
+      "type": "gloss",
+      "uri": "shlabh0c_4K_Gloss.jpg"
+    },
+    {
+      "averageColor": "#848484",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 22400243,
+      "maxIntensity": 182,
+      "mimeType": "image/x-exr",
+      "minIntensity": 81,
+      "name": "Roughness",
+      "physicalSize": "0.5x0.5",
+      "resolution": "4096x4096",
+      "type": "roughness",
+      "uri": "shlabh0c_4K_Roughness.exr"
+    },
+    {
+      "averageColor": "#848484",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 5774015,
+      "maxIntensity": 182,
+      "mimeType": "image/jpeg",
+      "minIntensity": 81,
+      "name": "Roughness",
+      "physicalSize": "0.5x0.5",
+      "resolution": "4096x4096",
+      "type": "roughness",
+      "uri": "shlabh0c_4K_Roughness.jpg"
+    }
+  ],
+  "meta": [
+    {
+      "key": "scanArea",
+      "name": "Scan Area",
+      "value": "0.5x0.5 m"
+    },
+    {
+      "key": "height",
+      "name": "Height",
+      "value": "20 m"
+    },
+    {
+      "key": "tileable",
+      "name": "Tileable",
+      "value": true
+    },
+    {
+      "key": "texelDensity",
+      "name": "Texel Density",
+      "value": "8192 px/m"
+    },
+    {
+      "key": "calibration",
+      "name": "Calibration",
+      "value": "GretagMacbeth ColorChecker Color Rendition Chart"
+    },
+    {
+      "key": "scanner",
+      "name": "Scanner",
+      "value": "MKX"
+    }
+  ],
+  "models": [],
+  "name": "Oxidized Coated Steel",
+  "pack": null,
+  "physicalSize": null,
+  "points": 1,
+  "previews": {
+    "images": [
+      {
+        "contentLength": 134502,
+        "resolution": "360x360",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "shlabh0c_Grid_360.png"
+      },
+      {
+        "contentLength": 178807,
+        "resolution": "420x420",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "shlabh0c_Grid_420.png"
+      },
+      {
+        "contentLength": 483720,
+        "resolution": "720x720",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "shlabh0c_Grid_720.png"
+      },
+      {
+        "contentLength": 648256,
+        "resolution": "840x840",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "shlabh0c_Grid_840.png"
+      },
+      {
+        "contentLength": 1317854,
+        "resolution": "1440x768",
+        "tags": [
+          "preview"
+        ],
+        "uri": "shlabh0c_Popup_1440.png"
+      },
+      {
+        "contentLength": 2393077,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview"
+        ],
+        "uri": "shlabh0c_Popup_1920.png"
+      },
+      {
+        "contentLength": 4933003,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "shlabh0c_Popup_2880.png"
+      },
+      {
+        "contentLength": 8896821,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "shlabh0c_Popup_3840.png"
+      }
+    ],
+    "relativeSize": "1x1",
+    "scaleReferences": []
+  },
+  "process_date": "2024-04-17 15:21:08",
+  "properties": [],
+  "referencePreviews": {
+    "maps": [],
+    "models": []
+  },
+  "references": [],
+  "revised": false,
+  "semanticTags": {
+    "architectural_style": {},
+    "asset_type": "imperfection",
+    "contains": [
+      "texture"
+    ],
+    "environment": [],
+    "industry": [
+      "archviz",
+      "games",
+      "VFX"
+    ],
+    "interior_exterior": [
+      "interior",
+      "exterior"
+    ],
+    "latin_name": [],
+    "locations": {},
+    "maxSize": 0.5,
+    "minSize": 0.5,
+    "name": "Oxidized Coated Steel",
+    "resolution": 4096,
+    "season": [],
+    "subject_matter": "manmade",
+    "theme": [
+      "steel",
+      " coated steel"
+    ]
+  },
+  "tags": [
+    "surface imperfection",
+    "archviz"
+  ],
+  "texelDensity": 8192,
+  "texture_type": "basic",
+  "ue_plugin_archives": [
+    {
+      "contentLength": 11645393,
+      "gltfVersion": "2.0",
+      "tier": 1,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_1/shlabh0c_tier_1.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 3289577,
+      "gltfVersion": "2.0",
+      "tier": 2,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_2/shlabh0c_tier_2.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 1068456,
+      "gltfVersion": "2.0",
+      "tier": 3,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_3/shlabh0c_tier_3.zip",
+      "version": 1
+    }
+  ],
+  "version": 2
+}

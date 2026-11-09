@@ -1,0 +1,302 @@
+{
+  "assetCategories": {
+    "imperfection": {
+      "metal": {
+        "scratched": {}
+      }
+    }
+  },
+  "averageColor": "#808080",
+  "categories": [
+    "surface",
+    "imperfections"
+  ],
+  "comp_version": 1,
+  "description": "",
+  "environment": {
+    "biome": "undefined",
+    "region": "undefined"
+  },
+  "highest_available_res": 8192,
+  "id": "sbymccip",
+  "json": {
+    "contentLength": 6544,
+    "uri": "sbymccip.json"
+  },
+  "maps": [
+    {
+      "averageColor": "#7E7E7E",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 118936356,
+      "maxIntensity": 246,
+      "mimeType": "image/x-exr",
+      "minIntensity": 99,
+      "name": "Gloss",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "gloss",
+      "uri": "sbymccip_8K_Gloss.exr"
+    },
+    {
+      "averageColor": "#7E7E7E",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 31912824,
+      "maxIntensity": 246,
+      "mimeType": "image/jpeg",
+      "minIntensity": 99,
+      "name": "Gloss",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "gloss",
+      "uri": "sbymccip_8K_Gloss.jpg"
+    },
+    {
+      "averageColor": "#F9F9F9",
+      "bitDepth": 16,
+      "colorSpace": "Linear",
+      "contentLength": 41653348,
+      "maxIntensity": 255,
+      "mimeType": "image/x-exr",
+      "minIntensity": 0,
+      "name": "Mask",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "mask",
+      "uri": "sbymccip_8K_Mask.exr"
+    },
+    {
+      "averageColor": "#F9F9F9",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 16734054,
+      "maxIntensity": 255,
+      "mimeType": "image/jpeg",
+      "minIntensity": 0,
+      "name": "Mask",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "mask",
+      "uri": "sbymccip_8K_Mask.jpg"
+    },
+    {
+      "averageColor": "#818181",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 97980831,
+      "maxIntensity": 156,
+      "mimeType": "image/x-exr",
+      "minIntensity": 9,
+      "name": "Roughness",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "roughness",
+      "uri": "sbymccip_8K_Roughness.exr"
+    },
+    {
+      "averageColor": "#818181",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 32084829,
+      "maxIntensity": 156,
+      "mimeType": "image/jpeg",
+      "minIntensity": 9,
+      "name": "Roughness",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "roughness",
+      "uri": "sbymccip_8K_Roughness.jpg"
+    }
+  ],
+  "meta": [
+    {
+      "key": "scanArea",
+      "name": "Scan Area",
+      "value": "1x1 m"
+    },
+    {
+      "key": "height",
+      "name": "Height",
+      "value": "20 m"
+    },
+    {
+      "key": "tileable",
+      "name": "Tileable",
+      "value": true
+    },
+    {
+      "key": "texelDensity",
+      "name": "Texel Density",
+      "value": "8192 px/m"
+    },
+    {
+      "key": "calibration",
+      "name": "Calibration",
+      "value": "GretagMacbeth ColorChecker Color Rendition Chart"
+    },
+    {
+      "key": "scanner",
+      "name": "Scanner",
+      "value": "MKX"
+    }
+  ],
+  "models": [],
+  "name": "Scratched Painted Metal",
+  "pack": null,
+  "physicalSize": null,
+  "points": 1,
+  "previews": {
+    "images": [
+      {
+        "contentLength": 137629,
+        "resolution": "360x360",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "sbymccip_Grid_360.png"
+      },
+      {
+        "contentLength": 185725,
+        "resolution": "420x420",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "sbymccip_Grid_420.png"
+      },
+      {
+        "contentLength": 522087,
+        "resolution": "720x720",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "sbymccip_Grid_720.png"
+      },
+      {
+        "contentLength": 708305,
+        "resolution": "840x840",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "sbymccip_Grid_840.png"
+      },
+      {
+        "contentLength": 1353105,
+        "resolution": "1440x768",
+        "tags": [
+          "preview"
+        ],
+        "uri": "sbymccip_Popup_1440.png"
+      },
+      {
+        "contentLength": 2465582,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview"
+        ],
+        "uri": "sbymccip_Popup_1920.png"
+      },
+      {
+        "contentLength": 5103593,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "sbymccip_Popup_2880.png"
+      },
+      {
+        "contentLength": 9555639,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "sbymccip_Popup_3840.png"
+      }
+    ],
+    "relativeSize": "1x1",
+    "scaleReferences": []
+  },
+  "process_date": "2024-04-18 10:07:59",
+  "properties": [],
+  "referencePreviews": {
+    "maps": [],
+    "models": []
+  },
+  "references": [],
+  "revised": false,
+  "semanticTags": {
+    "architectural_style": {},
+    "asset_type": "imperfection",
+    "contains": [
+      "scratches",
+      "textured"
+    ],
+    "environment": [],
+    "industry": [
+      "archviz",
+      "games",
+      "VFX"
+    ],
+    "interior_exterior": [
+      "interior",
+      "exterior"
+    ],
+    "latin_name": [],
+    "locations": {},
+    "maxSize": 1,
+    "minSize": 1,
+    "name": "Scratched Painted Metal",
+    "resolution": 8192,
+    "season": [],
+    "subject_matter": "manmade",
+    "theme": [
+      "painted metal"
+    ]
+  },
+  "tags": [
+    "surface imperfection",
+    "scratches",
+    "archviz"
+  ],
+  "texelDensity": 8192,
+  "texture_type": "basic",
+  "ue_plugin_archives": [
+    {
+      "contentLength": 66194250,
+      "gltfVersion": "2.0",
+      "tier": 0,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_0/sbymccip_tier_0.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 21510775,
+      "gltfVersion": "2.0",
+      "tier": 1,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_1/sbymccip_tier_1.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 5787770,
+      "gltfVersion": "2.0",
+      "tier": 2,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_2/sbymccip_tier_2.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 1854357,
+      "gltfVersion": "2.0",
+      "tier": 3,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_3/sbymccip_tier_3.zip",
+      "version": 1
+    }
+  ],
+  "version": 2
+}

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>蓟州校区锅炉数字孪生系统</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="TemplateData/dashboard.css?v=20261105-1">
+  </head>
+  <body>
+    <!-- ================= 登录屏 ================= -->
+    <div id="login-screen" class="screen">
+      <div class="bg-grid"></div>
+      <div class="bg-glow"></div>
+      <div class="login-card">
+        <div class="brand">
+          <svg class="brand-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <rect x="6" y="6" width="52" height="52" rx="12" stroke="#22d3ee" stroke-width="3"/>
+            <path d="M22 44V30a10 10 0 0 1 20 0v14" stroke="#22d3ee" stroke-width="3" stroke-linecap="round"/>
+            <path d="M18 44h28" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+            <path d="M26 24c0-4 4-4 4-8m8 8c0-4-4-4-4-8" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="32" cy="34" r="4" fill="#22d3ee"/>
+            <path d="M14 50h8M42 50h8" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <h1>蓟州校区锅炉数字孪生系统</h1>
+          <p class="sub">Biomass Boiler Digital Twin · WebGL</p>
+        </div>
+        <div class="form">
+          <label class="field-label" for="login-username">用户名</label>
+          <input id="login-username" type="text" autocomplete="username" placeholder="请输入用户名" spellcheck="false">
+          <label class="field-label" for="login-password">密码</label>
+          <input id="login-password" type="password" autocomplete="current-password" placeholder="请输入密码">
+          <label class="remember"><input id="login-remember" type="checkbox" checked> 记住用户名</label>
+          <button id="login-button" type="button">进入系统</button>
+          <p id="login-hint" class="hint"></p>
+        </div>
+        <p class="footnote">演示账号：admin / admin123　·　可在模板中对接后端登录接口</p>
+      </div>
+    </div>
+
+    <!-- ================= 加载屏 ================= -->
+    <div id="loading-screen" class="screen" style="display:none">
+      <div class="bg-grid"></div>
+      <div class="bg-glow"></div>
+      <div class="loading-box">
+        <div class="loader-ring"><span class="loader-core"></span></div>
+        <div class="loading-title">{{{ PRODUCT_NAME }}}</div>
+        <div class="progress-track">
+          <div id="unity-progress-bar-full" class="progress-fill"></div>
+        </div>
+        <div class="progress-meta">
+          <span id="progress-percent">0%</span>
+          <span id="progress-tip">正在加载三维场景，首次加载可能需要几分钟，请勿关闭页面</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 智慧锅炉驾驶舱 ================= -->
+    <div id="workspace">
+      <div id="unity-container" class="unity-desktop">
+        <canvas id="unity-canvas" width={{{ WIDTH }}} height={{{ HEIGHT }}} tabindex="0" aria-label="锅炉三维交互场景"></canvas>
+        <div id="unity-warning"></div>
+      </div>
+      <div id="campus-map-layer" hidden>
+        <div id="campus-map" aria-label="天津农学院蓟州校区卫星鸟瞰地图"></div>
+        <div id="map-unavailable" class="map-unavailable" hidden>
+          <strong>卫星底图暂时无法加载</strong><p>请检查网络后重试，也可在高德地图中查看此位置。</p>
+          <button type="button" id="map-retry">重新加载地图</button>
+          <a id="map-external" target="_blank" rel="noopener noreferrer">在高德地图查看 ↗</a>
+        </div>
+      </div>
+      <div class="scene-vignette" aria-hidden="true"></div>
+
+      <header class="cockpit-header">
+        <svg class="header-circuit" viewBox="0 0 1920 92" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="circuit-light"><stop stop-color="#258bff"/><stop offset=".5" stop-color="#2de9f5"/><stop offset="1" stop-color="#258bff"/></linearGradient></defs><path d="M0 28H180l24 18h325l30 26h802l30-26h325l24-18h180"/><path class="inner-circuit" d="M0 36H170l25 17h322l30 27h826l30-27h322l25-17h170"/><path class="header-accent" d="M510 48h100m700 0h100M835 80h250"/></svg>
+        <div class="header-meta"><span class="tiny-label">TIANJIN AGRICULTURAL UNIVERSITY</span><span class="location-label"><i class="location-dot"></i>天津 · 蓟州校区</span></div>
+        <div class="header-title"><h1>生物质锅炉数字孪生中心</h1><p>BIOMASS BOILER · DIGITAL TWIN</p></div>
+        <div class="header-right"><time id="dashboard-clock">--:--:--</time><span id="dashboard-date">---- 年 -- 月 -- 日</span><button id="unity-fullscreen-button" class="icon-button" type="button" aria-label="切换全屏" title="全屏 / 退出全屏">⛶</button></div>
+      </header>
+
+      <nav class="scene-switch" aria-label="主视图切换">
+        <button id="mode-model" class="active" type="button" aria-pressed="true"><span>◈</span> 三维孪生</button>
+        <button id="mode-map" type="button" aria-pressed="false"><span>◎</span> 地图鸟瞰</button>
+      </nav>
+      <div id="model-load-status" class="model-load-status" role="status" hidden></div>
+      <div class="view-buttons" id="view-buttons" aria-label="锅炉视角切换"></div>
+
+      <aside id="dash-left" class="dashboard-column column-left" aria-label="锅炉运行概况">
+        <button id="left-collapse-tab" class="column-toggle" type="button" aria-label="折叠或展开左侧面板" aria-expanded="true"><span class="tab-arrow">‹</span></button>
+        <section class="instrument-panel overview-panel">
+          <h2 class="section-heading">运行总览 <span>Operation overview</span><i></i></h2>
+          <div class="overview-grid">
+            <div class="overview-item"><span class="stat-icon cyan">♨</span><div><strong data-value="steamPressure">--</strong><span class="stat-unit" data-unit="steamPressure">Pa</span><small>蒸汽压力</small></div></div>
+            <div class="overview-item"><span class="stat-icon amber">ϟ</span><div><strong data-value="steamFlow">--</strong><span class="stat-unit" data-unit="steamFlow">t</span><small>蒸汽流量</small></div></div>
+            <div class="overview-item"><span class="stat-icon green">⌁</span><div><strong id="point-count">--</strong><span class="stat-unit">项</span><small>有效监测点</small></div></div>
+            <div class="overview-item"><span class="stat-icon coral">♧</span><div><strong id="alarm-count">--</strong><span class="stat-unit">项</span><small>接口告警点</small></div></div>
+          </div>
+          <div class="source-status"><span class="status-dot" id="data-status-dot"></span><span id="dash-update">正在连接设备数据…</span></div>
+          <div id="source-time" class="source-time">采样时间：等待接口返回</div>
+        </section>
+
+        <section class="instrument-panel process-panel">
+          <h2 class="section-heading">汽水运行监测 <span>Steam & water</span><i></i></h2>
+          <div class="gauge-grid">
+            <div class="radial-gauge cyan"><div class="gauge-ring"><strong data-value="steamPressure">--</strong><small data-unit="steamPressure">Pa</small></div><span>蒸汽压力</span></div>
+            <div class="radial-gauge green"><div class="gauge-ring"><strong data-value="drumLevel">--</strong><small data-unit="drumLevel">mm</small></div><span id="drum-level-caption">锅筒水位</span></div>
+            <div class="radial-gauge amber"><div class="gauge-ring"><strong data-value="o2">--</strong><small data-unit="o2">%</small></div><span>烟气氧含量</span></div>
+          </div>
+          <div class="process-readings">
+            <div><span>蒸汽累计流量</span><strong data-value="steamTotal">--</strong><small data-unit="steamTotal">t</small></div>
+            <div><span>省煤器入口烟温</span><strong data-value="ecoInTemp">--</strong><small data-unit="ecoInTemp">℃</small></div>
+            <div><span>烟尘入口温度</span><strong data-value="dustInTemp">--</strong><small data-unit="dustInTemp">℃</small></div>
+            <div><span>烟尘入口压力</span><strong data-value="dustInPress">--</strong><small data-unit="dustInPress">Pa</small></div>
+          </div>
+        </section>
+
+        <section class="instrument-panel location-panel">
+          <h2 class="section-heading">校区地理总览 <span>Campus location</span><i></i></h2>
+          <div class="mini-map-wrap"><div id="campus-mini-map" aria-hidden="true"></div><button id="open-campus-map" type="button" aria-label="展开校区卫星鸟瞰地图"><span class="mini-map-target" aria-hidden="true">⌖</span><span class="mini-map-caption">天津农学院 · 蓟州校区 <b>点击展开 ↗</b></span></button><small class="mini-map-credit">影像 © Esri, Vantor, Earthstar Geographics</small></div>
+          <p class="campus-address">天津市蓟州区五百户镇青池一村东侧</p>
+        </section>
+      </aside>
+
+      <aside id="dash-right" class="dashboard-column column-right" aria-label="动力与烟气数据">
+        <button id="right-collapse-tab" class="column-toggle" type="button" aria-label="折叠或展开右侧面板" aria-expanded="true"><span class="tab-arrow">›</span></button>
+        <section class="instrument-panel frequency-panel">
+          <h2 class="section-heading">动力设备频率 <span>Equipment frequency</span><i></i></h2>
+          <div id="frequency-bars" class="frequency-bars"></div>
+          <div class="frequency-axis"><span>0 Hz</span><span id="frequency-max">50 Hz</span></div>
+        </section>
+        <section class="instrument-panel trend-panel">
+          <h2 class="section-heading">锅炉运行趋势 <span>Live session trend</span><i></i></h2>
+          <div class="trend-toolbar"><button class="active" type="button" data-trend="steamPressure">蒸汽压力</button><button type="button" data-trend="steamFlow">蒸汽流量</button><span id="trend-unit">Pa</span></div>
+          <div class="trend-chart"><svg id="trend-chart" viewBox="0 0 320 130" preserveAspectRatio="none" role="img" aria-label="本次会话中采集的设备趋势"><defs><linearGradient id="trend-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#21dbf4" stop-opacity=".45"/><stop offset="1" stop-color="#21dbf4" stop-opacity="0"/></linearGradient></defs><g class="chart-grid"><path d="M34 16H312M34 47H312M34 78H312M34 109H312"/></g><g id="trend-y-labels"></g><path id="trend-area" fill="url(#trend-fill)"/><path id="trend-line" fill="none" stroke="#25dff5" stroke-width="2" vector-effect="non-scaling-stroke"/></svg><span id="trend-empty">正在积累本次会话数据</span></div>
+          <div class="trend-times"><span id="trend-start">--:--:--</span><span>最近 5 分钟 · 每 5 秒采集</span><span id="trend-end">--:--:--</span></div>
+        </section>
+        <section class="instrument-panel flue-panel">
+          <h2 class="section-heading">烟气参数监测 <span>Flue gas monitoring</span><i></i></h2>
+          <div class="flue-grid"><div class="flue-metric cyan"><span class="flue-icon">O₂</span><strong data-value="o2">--</strong><small>氧含量 <b data-unit="o2">%</b></small></div><div class="flue-metric green"><span class="flue-icon">♨</span><strong data-value="dustInTemp">--</strong><small>入口烟温 <b data-unit="dustInTemp">℃</b></small></div><div class="flue-metric amber"><span class="flue-icon">◴</span><strong data-value="dustInPress">--</strong><small>入口压力 <b data-unit="dustInPress">Pa</b></small></div></div>
+        </section>
+      </aside>
+
+      <div class="map-controls" id="map-controls" hidden><div class="compass" title="上北下南"><span>N</span><i></i></div><button id="map-zoom-in" type="button" aria-label="放大地图">＋</button><button id="map-zoom-out" type="button" aria-label="缩小地图">−</button><button id="map-home" type="button" aria-label="定位锅炉房" title="定位锅炉房">⌖</button></div>
+      <section id="map-detail" class="map-detail" hidden aria-label="地图位置详情"><button id="map-detail-close" type="button" aria-label="关闭位置详情">×</button><span class="tiny-label">CAMPUS · BOILER LOCATION</span><h3>天津农学院 · 蓟州校区</h3><p>五百户镇青池一村东侧</p><p class="coordinate-label">高德坐标 117.516216° E / 40.020679° N</p><div><button id="map-detail-zoom" type="button">放大至锅炉模型 ↗</button><button id="map-detail-model" type="button">进入锅炉三维场景 →</button></div></section>
+      <div id="model-entry-note" class="model-entry-note" hidden><span class="entry-spinner"></span><strong>正在进入锅炉三维模型</strong><small>天津农学院 · 蓟州校区</small></div>
+      <div class="scene-caption"><span class="scene-index" id="scene-index">01</span><div><strong id="scene-caption-title">锅炉三维数字孪生</strong><small id="scene-caption-tip">右键拖动旋转 · 滚轮缩放 · J / K 切换视角</small></div><span class="scene-live"><i></i><span id="scene-state">WEBGL 场景</span></span></div>
+      <footer class="data-ticker" aria-label="滚动设备数据"><div class="ticker-label"><i></i><span>运行数据<small>LIVE DATA FEED</small></span></div><div class="ticker-viewport" tabindex="0" aria-label="实时数据滚动字幕，自动循环播放，可使用右侧按钮暂停"><div id="ticker-track" class="ticker-track"></div></div><button id="ticker-pause" type="button" aria-label="暂停数据滚动" aria-pressed="false">Ⅱ</button></footer>
+    </div>
+
+    <!-- ================= 错误弹层 ================= -->
+    <div id="error-overlay" class="screen" style="display:none">
+      <div class="error-card">
+        <div class="error-icon">!</div>
+        <h2>启动失败</h2>
+        <p id="error-message"></p>
+        <button id="error-reload" type="button">重新加载</button>
+      </div>
+    </div>
+
+    <script src="TemplateData/vendor/leaflet/leaflet.js"></script>
+    <script src="TemplateData/dashboard.js?v=20261109-1"></script>
+    <script>
+      'use strict';
+
+      /* ============ 1. 常量与元素 ============ */
+      var container = document.querySelector('#unity-container');
+      var canvas = document.querySelector('#unity-canvas');
+      canvas.addEventListener('mousedown', function () {
+        canvas.focus({ preventScroll: true });
+      });
+      // Right-button dragging controls the camera without opening the browser menu.
+      canvas.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+      });
+      var warningBanner = document.querySelector('#unity-warning');
+      var progressBarFull = document.querySelector('#unity-progress-bar-full');
+      var progressPercent = document.querySelector('#progress-percent');
+      var progressTip = document.querySelector('#progress-tip');
+      var fullscreenButton = document.querySelector('#unity-fullscreen-button');
+      var loginScreen = document.querySelector('#login-screen');
+      var loadingScreen = document.querySelector('#loading-screen');
+      var errorOverlay = document.querySelector('#error-overlay');
+      var errorMessage = document.querySelector('#error-message');
+
+      var unityInstance = null;
+      // 供控制台 / 外部脚本访问 Unity 实例
+      window.unityInstance = null;
+
+      /* Web 登录账号（演示）。正式对接时把 doLogin() 内的校验替换为后端接口即可。 */
+      var DEMO_ACCOUNTS = { admin: 'admin123', operator: '123456' };
+
+      var params = new URLSearchParams(window.location.search);
+      var skipLogin = params.get('skipLogin') === '1';
+
+      /* ============ 2. Unity 横幅（警告 / 错误） ============ */
+      function unityShowBanner(msg, type) {
+        var div = document.createElement('div');
+        div.className = 'banner-item banner-' + (type === 'error' ? 'error' : (type === 'warning' ? 'warning' : 'info'));
+        div.textContent = msg;
+        warningBanner.appendChild(div);
+        if (type !== 'error') {
+          setTimeout(function () {
+            if (div.parentNode) warningBanner.removeChild(div);
+          }, 6000);
+        }
+      }
+      window.unityShowBanner = unityShowBanner;
+
+      /* ============ 3. 登录 ============ */
+      function showHint(text, isError) {
+        var hint = document.querySelector('#login-hint');
+        hint.textContent = text;
+        hint.className = 'hint' + (isError ? ' hint-error' : '');
+      }
+
+      function doLogin() {
+        var username = document.querySelector('#login-username').value.trim();
+        var password = document.querySelector('#login-password').value;
+        if (!username || !password) { showHint('请输入用户名和密码', true); return; }
+        // TODO: 对接后端登录接口后，将此处替换为 API 校验（如 POST /api/login）。
+        if (!(username in DEMO_ACCOUNTS) || DEMO_ACCOUNTS[username] !== password) {
+          showHint('用户名或密码错误', true);
+          return;
+        }
+        if (document.querySelector('#login-remember').checked) {
+          try { localStorage.setItem('boilerweb_user', username); } catch (e) {}
+        } else {
+          try { localStorage.removeItem('boilerweb_user'); } catch (e) {}
+        }
+        enterSystem(username);
+      }
+
+      function enterSystem(username) {
+        // 将登录用户写入 URL，供 Unity 场景启动时读取（WebGL 单点登录，跳过 Unity 内登录界面）
+        try { history.replaceState(null, '', '?user=' + encodeURIComponent(username)); } catch (e) {}
+        loginScreen.style.display = 'none';
+        loadingScreen.style.display = 'none';
+        enterWorkspace();
+        startUnity(username);
+      }
+
+      /* ============ 4. 启动 Unity ============ */
+      var buildUrl = 'Build';
+      var loaderUrl = buildUrl + '/{{{ LOADER_FILENAME }}}';
+      var config = {
+        dataUrl: buildUrl + '/{{{ DATA_FILENAME }}}',
+        frameworkUrl: buildUrl + '/{{{ FRAMEWORK_FILENAME }}}',
+#if USE_WASM
+        codeUrl: buildUrl + '/{{{ CODE_FILENAME }}}',
+#endif
+#if MEMORY_FILENAME
+        memoryUrl: buildUrl + '/{{{ MEMORY_FILENAME }}}',
+#endif
+#if SYMBOLS_FILENAME
+        symbolsUrl: buildUrl + '/{{{ SYMBOLS_FILENAME }}}',
+#endif
+        streamingAssetsUrl: 'StreamingAssets',
+        companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+        productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+        productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+        showBanner: unityShowBanner,
+      };
+
+      var unityLoading = false;
+      function startUnity(username) {
+        if (unityLoading || unityInstance) return;
+        unityLoading = true;
+        window.BoilerDashboard.setModelProgress(0);
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+          showError('三维场景需要桌面浏览器访问，请使用电脑端的 Chrome / Edge 打开。');
+          return;
+        }
+#if BACKGROUND_FILENAME
+        canvas.style.background = "url('" + buildUrl + "/{{{ BACKGROUND_FILENAME.replace(/'/g, '%27') }}}') center / cover";
+#endif
+        var script = document.createElement('script');
+        script.src = loaderUrl;
+        script.onload = function () {
+          createUnityInstance(canvas, config, function (progress) {
+            var pct = Math.round(progress * 100);
+            window.BoilerDashboard.setModelProgress(pct);
+            progressBarFull.style.width = pct + '%';
+            progressPercent.textContent = pct + '%';
+            if (pct < 30) progressTip.textContent = '正在下载程序资源…';
+            else if (pct < 70) progressTip.textContent = '正在加载三维场景与数据…';
+            else progressTip.textContent = '即将进入系统…';
+          }).then(function (instance) {
+            unityInstance = instance;
+            window.unityInstance = instance;
+            unityLoading = false;
+            window.BoilerDashboard.onModelReady();
+            loadingScreen.style.display = 'none';
+            // 进入主工作台：数据仪表盘与三维场景左右同屏显示
+            enterWorkspace();
+            fullscreenButton.onclick = function () {
+              window.BoilerDashboard.toggleFullscreen();
+            };
+            // 将 Web 登录用户通知给 Unity（场景内可通过 WebGLBridge 读取）
+            sendToUnity({ type: 'login', username: username || '' });
+          }).catch(function (message) {
+            unityLoading = false;
+            showError(message);
+          });
+        };
+        script.onerror = function () {
+          showError('无法加载引擎脚本（' + loaderUrl + '），请检查部署目录是否完整。');
+        };
+        document.body.appendChild(script);
+      }
+
+      /* ============ 5. 双向通信桥 ============ */
+      // JS → C#：unityInstance.SendMessage('WebGLBridgeInstance', 'OnWebCommand', json)
+      function sendToUnity(obj) {
+        if (!unityInstance || !obj) return;
+        try {
+          unityInstance.SendMessage('WebGLBridgeInstance', 'OnWebCommand', JSON.stringify(obj));
+        } catch (e) {
+          console.warn('sendToUnity failed:', e);
+        }
+      }
+      // C# → JS：Unity 内调用 WebGLBridge.SendToWeb(json)，会触发此处回调
+      window.onUnityMessage = function (json) {
+        console.log('[Unity->Web]', json);
+        try {
+          var d = JSON.parse(json);
+          if (!d || !d.type) return;
+          if (d.type === 'points' && Array.isArray(d.names)) {
+            // Unity 推送场景中实际存在的点位列表 → 渲染顶部视角按钮
+            renderViewButtons(d.names);
+            window.BoilerDashboard.onViewpointsReady();
+          } else if (d.type === 'point-clicked' && d.index !== undefined && d.index !== null) {
+            var view = viewButtonsEl.querySelector('.view-btn[data-index="' + Number(d.index) + '"]');
+            var treatment = viewButtonsEl.querySelector('.treatment-views');
+            if (!view && treatment && Array.from(treatment.options).some(function (option) { return option.value === String(d.index); }))
+              view = treatment;
+            if (view) setActiveViewBtn(view);
+          } else if (d.type === 'point-error') {
+            console.warn('[视角] 点位不存在:', d.name);
+          }
+        } catch (e) {}
+      };
+
+      /* ============ 5.1 键盘视角切换（J / K） ============ */
+      // 全局键盘监听：按 J / K 切换相机点位视角，通过桥发给 Unity 执行（不依赖 Unity 内部输入系统）。
+      // 登录输入框聚焦时不触发，避免影响用户名 / 密码输入。
+      window.addEventListener('keydown', function (e) {
+        if (window.BoilerDashboard.getMode() === 'map') return;
+        var k = e.key || '';
+        if (k.length !== 1) return;
+        var t = e.target;
+        if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+        var kk = k.toLowerCase();
+        if (kk === 'k') {
+          sendToUnity({ type: 'switchPoint', dir: '1' });
+        } else if (kk === 'j') {
+          sendToUnity({ type: 'switchPoint', dir: '-1' });
+        }
+      });
+
+      /* ============ 5.1b 始终禁止指针锁定（点击三维画面不隐藏鼠标） ============ */
+      // Unity 仅在 Cursor.lockState=Locked 时会请求浏览器指针锁定（requestPointerLock），
+      // 一旦锁定系统鼠标会被隐藏。产品要求点击画面后鼠标始终可见，这里在浏览器层兜底：
+      // 无论谁触发了指针锁定，立即退出，保证画布上点击 / 拖动后鼠标光标都在。
+      function releasePointerLock() {
+        if (document.pointerLockElement && document.exitPointerLock) {
+          document.exitPointerLock();
+        }
+        if (document.mozPointerLockElement && document.mozExitPointerLock) {
+          document.mozExitPointerLock();
+        }
+      }
+      document.addEventListener('pointerlockchange', releasePointerLock);
+      document.addEventListener('mozpointerlockchange', releasePointerLock);
+      // 兜底：webkit 内核下指针锁定失败也会隐藏光标，监听错误事件同样释放
+      document.addEventListener('pointerlockerror', releasePointerLock);
+
+      /* ============ 5.4 顶部视角按钮（点击直接跳转对应视角） ============ */
+      // 点位名 → 中文标签；未收录的点位名直接显示原名。新增点位后无需改这里，按钮自动出现。
+      var VIEWPOINT_LABELS = {
+        OverviewPoint: '模型全景',
+        BoilerDetailPoint: '锅炉细节',
+        TailFluePoint: '烟囱尾部',
+        kongzhihPoint: '控制柜视角',
+        kongzhiPoint: '控制柜视角',
+        shuichuliPoint: '水处理视角',
+        WaterAerationPoint: '曝气特写（演示）',
+        WaterMixingPoint: '混合特写（演示）',
+        yanxiangPoint: '烟箱视角'
+      };
+      var viewButtonsEl = document.querySelector('#view-buttons');
+      var activeViewBtn = null;
+
+      function viewpointLabel(name) {
+        return VIEWPOINT_LABELS[name] || name;
+      }
+
+      function renderViewButtons(names) {
+        if (!viewButtonsEl || !names || !names.length) return;
+        viewButtonsEl.innerHTML = '';
+        var waterIndex = names.indexOf('shuichuliPoint');
+        var aerationIndex = names.indexOf('WaterAerationPoint');
+        var mixingIndex = names.indexOf('WaterMixingPoint');
+        names.forEach(function (name, i) {
+          if (waterIndex >= 0 && aerationIndex >= 0) {
+            if (i === aerationIndex || i === mixingIndex) return;
+            if (i === waterIndex) {
+              var select = document.createElement('select');
+              select.className = 'view-btn treatment-views';
+              select.setAttribute('aria-label', '水处理视角');
+              select.add(new Option('水处理视角', '', true, true));
+              select.options[0].disabled = true;
+              select.add(new Option('水处理总览', String(waterIndex)));
+              select.add(new Option(viewpointLabel('WaterAerationPoint'), String(aerationIndex)));
+              if (mixingIndex >= 0)
+                select.add(new Option(viewpointLabel('WaterMixingPoint'), String(mixingIndex)));
+              select.onchange = function () {
+                if (!select.value) return;
+                sendToUnity({ type: 'switchPoint', index: select.value });
+                select.selectedIndex = 0;
+                setActiveViewBtn(select);
+                document.querySelector('#unity-canvas').focus({ preventScroll: true });
+              };
+              viewButtonsEl.appendChild(select);
+              return;
+            }
+          }
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'view-btn';
+          btn.textContent = viewpointLabel(name);
+          btn.title = '切换到 ' + viewpointLabel(name);
+          btn.dataset.name = name;
+          btn.dataset.index = String(i);
+          btn.onclick = function () {
+            setActiveViewBtn(btn);
+            sendToUnity({ type: 'switchPoint', index: String(i) });
+          };
+          viewButtonsEl.appendChild(btn);
+        });
+        var first = viewButtonsEl.querySelector('.view-btn');
+        if (first) setActiveViewBtn(first);
+      }
+
+      function setActiveViewBtn(btn) {
+        if (activeViewBtn) activeViewBtn.classList.remove('active');
+        activeViewBtn = btn;
+        if (btn) btn.classList.add('active');
+      }
+
+      // 兜底：若 Unity 点位推送未及时到达，3 秒后用已知默认点位渲染（避免顶部空白）
+      function ensureViewButtonsFallback() {
+        if (viewButtonsEl && viewButtonsEl.children.length === 0) {
+          renderViewButtons(['OverviewPoint', 'TailFluePoint']);
+        }
+      }
+
+      /* ============ 5.3 主工作台：进入 + 左右 HUD 折叠 / 展开 ============ */
+      var workspace = document.querySelector('#workspace');
+      var leftPanel = document.querySelector('#dash-left');
+      var rightPanel = document.querySelector('#dash-right');
+      var leftTab = document.querySelector('#left-collapse-tab');
+      var rightTab = document.querySelector('#right-collapse-tab');
+
+      function enterWorkspace() {
+        workspace.style.display = 'block';
+        window.BoilerDashboard.start();
+        setTimeout(ensureViewButtonsFallback, 3000);
+      }
+
+      function bindCollapse(panel, tab, expandArrow) {
+        var arrow = tab.querySelector('.tab-arrow');
+        var collapseArrow = arrow.textContent; // 初始箭头 = 收起方向
+        tab.onclick = function () {
+          var collapsed = panel.classList.toggle('collapsed');
+          tab.setAttribute('aria-expanded', String(!collapsed));
+          panel.querySelectorAll('.instrument-panel').forEach(function (section) { section.inert = collapsed; });
+          arrow.textContent = collapsed ? expandArrow : collapseArrow;
+        };
+      }
+      // 左面板收起后箭头朝右(›)表示"向右展开"；右面板收起后箭头朝左(‹)表示"向左展开"
+      bindCollapse(leftPanel, leftTab, '\u203A');
+      bindCollapse(rightPanel, rightTab, '\u2039');
+
+      /* ============ 6. 错误处理 ============ */
+      function showError(message) {
+        if (typeof message === 'string' && /Aborted|CompileError|memory|Out of/.test(message)) {
+          message = '内存或编译错误：' + message;
+        }
+        errorMessage.textContent = message || '未知错误，请刷新重试。';
+        loadingScreen.style.display = 'none';
+        errorOverlay.style.display = 'flex';
+      }
+      document.querySelector('#error-reload').onclick = function () {
+        window.location.reload();
+      };
+
+      /* ============ 7. 初始化 ============ */
+      document.querySelector('#login-button').onclick = doLogin;
+      document.querySelector('#login-password').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') doLogin();
+      });
+      document.querySelector('#login-username').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') document.querySelector('#login-password').focus();
+      });
+      try {
+        var saved = localStorage.getItem('boilerweb_user');
+        if (saved) document.querySelector('#login-username').value = saved;
+      } catch (e) {}
+
+      window.addEventListener('boiler:request-model', function () {
+        if (!unityInstance && !unityLoading) enterSystem(params.get('user') || 'guest');
+      });
+      window.addEventListener('boiler:show-map', function () {
+        sendToUnity({ type: 'stopTreatmentPreview' });
+      });
+
+      if (params.get('uiPreview') === '1') {
+        loginScreen.style.display = 'none';
+        loadingScreen.style.display = 'none';
+        enterWorkspace();
+      } else if (skipLogin) {
+        enterSystem(params.get('user') || 'guest');
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,673 @@
+/* ============================================================
+   蓟州校区锅炉数字孪生系统 · WebGL 正式版模板样式
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "Segoe UI", sans-serif;
+  background: #070b14;
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- 通用屏 ---------- */
+.screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #070b14 0%, #0b1424 55%, #0e1a2f 100%);
+  z-index: 10;
+}
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 45%, #000 30%, transparent 75%);
+}
+
+.bg-glow {
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.14) 0%, transparent 65%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -58%);
+  pointer-events: none;
+}
+
+/* ---------- 登录卡片 ---------- */
+.login-card {
+  position: relative;
+  width: 400px;
+  max-width: 92vw;
+  padding: 40px 38px 28px;
+  background: rgba(13, 21, 38, 0.78);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.brand { text-align: center; margin-bottom: 30px; }
+
+.brand-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.35));
+}
+
+.brand h1 {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #67e8f9, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand .sub {
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.field-label {
+  display: block;
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 16px 0 7px;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  font-size: 14px;
+  color: #e2e8f0;
+  background: rgba(7, 12, 24, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form input:focus {
+  border-color: #22d3ee;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15);
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0 18px;
+  font-size: 13px;
+  color: #94a3b8;
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember input { accent-color: #22d3ee; width: 15px; height: 15px; }
+
+#login-button {
+  width: 100%;
+  height: 44px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: #04222b;
+  background: linear-gradient(90deg, #22d3ee, #38bdf8);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.1s;
+}
+
+#login-button:hover { filter: brightness(1.1); }
+#login-button:active { transform: scale(0.99); }
+
+.hint {
+  min-height: 20px;
+  margin-top: 14px;
+  font-size: 13px;
+  text-align: center;
+  color: #34d399;
+}
+
+.hint-error { color: #f87171; }
+
+.footnote {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  font-size: 12px;
+  text-align: center;
+  color: #64748b;
+}
+
+/* ---------- 加载屏 ---------- */
+.loading-box {
+  position: relative;
+  text-align: center;
+}
+
+.loader-ring {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 26px;
+  border-radius: 50%;
+  border: 3px solid rgba(34, 211, 238, 0.15);
+  border-top-color: #22d3ee;
+  border-right-color: #38bdf8;
+  animation: spin 1.1s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-core {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #67e8f9, #22d3ee);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.8);
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 26px;
+  color: #cbd5e1;
+}
+
+.progress-track {
+  width: 360px;
+  max-width: 80vw;
+  height: 6px;
+  border-radius: 4px;
+  background: rgba(148, 163, 184, 0.18);
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #22d3ee, #38bdf8);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.55);
+  transition: width 0.25s ease;
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+#progress-percent {
+  font-family: Consolas, monospace;
+  color: #67e8f9;
+  font-weight: 600;
+}
+
+#progress-tip { color: #64748b; }
+
+/* ---------- Unity 容器（全屏铺底，数据 HUD 悬浮其上） ---------- */
+#unity-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: {{{ BACKGROUND_COLOR }}};
+  display: block;
+}
+
+#unity-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+}
+
+#unity-warning {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  width: min(560px, 90vw);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.banner-item {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  animation: fadeIn 0.25s ease;
+}
+
+.banner-error { background: rgba(220, 38, 38, 0.92); color: #fff; }
+.banner-warning { background: rgba(202, 138, 4, 0.92); color: #fff; }
+.banner-info { background: rgba(2, 132, 199, 0.92); color: #fff; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+/* 顶栏：居中悬浮玻璃胶囊（品牌 + 视角按钮组 + 全屏按钮），不遮挡两侧数据面板 */
+.unity-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 12px;
+  z-index: 15;
+  pointer-events: none;
+}
+
+/* 顶部视角按钮组：点击直接切换到对应相机点位 */
+.view-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 46vw;
+  overflow-x: auto;
+  scrollbar-width: none;
+  pointer-events: auto;
+}
+.view-buttons::-webkit-scrollbar { display: none; }
+
+.view-btn {
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  color: #cbd5e1;
+  background: rgba(7, 15, 28, 0.5);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.view-btn:hover {
+  color: #22d3ee;
+  border-color: rgba(34, 211, 238, 0.6);
+  background: rgba(34, 211, 238, 0.12);
+}
+
+.view-btn.active {
+  color: #04141b;
+  font-weight: 600;
+  background: linear-gradient(90deg, #22d3ee, #38bdf8);
+  border-color: transparent;
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.brand-pill {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 38px;
+  padding: 0 10px 0 20px;
+  border-radius: 999px;
+  background: rgba(7, 15, 28, 0.5);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  pointer-events: auto;
+}
+
+.unity-brand {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #e2e8f0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  white-space: nowrap;
+}
+
+.unity-brand .ver { font-weight: 400; color: #94a3b8; margin-left: 6px; font-size: 12px; }
+
+.fs-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 50%;
+  color: #cbd5e1;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.fs-btn:hover { border-color: #22d3ee; color: #22d3ee; background: rgba(34, 211, 238, 0.22); }
+
+.fs-btn svg { width: 16px; height: 16px; }
+
+/* ---------- 错误弹层 ---------- */
+#error-overlay {
+  background: rgba(7, 11, 20, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.error-card {
+  width: 420px;
+  max-width: 90vw;
+  padding: 36px 34px;
+  text-align: center;
+  background: rgba(13, 21, 38, 0.9);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 16px;
+}
+
+.error-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: #f87171;
+  border: 2px solid rgba(248, 113, 113, 0.5);
+  border-radius: 50%;
+}
+
+.error-card h2 { font-size: 18px; margin-bottom: 12px; color: #fca5a5; }
+
+#error-message {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #94a3b8;
+  word-break: break-all;
+  max-height: 160px;
+  overflow-y: auto;
+  margin-bottom: 24px;
+}
+
+#error-reload {
+  padding: 10px 32px;
+  font-size: 14px;
+  color: #04222b;
+  font-weight: 600;
+  background: linear-gradient(90deg, #22d3ee, #38bdf8);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#error-reload:hover { filter: brightness(1.1); }
+
+/* ---------- 小屏适配 ---------- */
+@media (max-width: 640px) {
+  .login-card { padding: 30px 24px 22px; }
+  .brand h1 { font-size: 18px; }
+  .unity-topbar { height: 44px; }
+}
+
+/* ---------- 主工作台：3D 全屏铺底 + 左右两侧悬浮透明 HUD ---------- */
+#workspace {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 5;
+}
+
+/* 两侧悬浮透明面板（玻璃拟态）；展开态高度贴合内容，折叠态为通高竖条 */
+.hud-panel {
+  position: absolute;
+  top: 60px;
+  bottom: auto;
+  width: 268px;
+  max-height: calc(100vh - 74px);
+  display: flex;
+  flex-direction: row;
+  z-index: 8;
+  transition: width 0.3s ease;
+}
+.hud-left { left: 12px; }
+.hud-right { right: 12px; }
+
+.hud-panel .panel-inner {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-height: calc(100vh - 74px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 16px 14px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(8, 17, 32, 0.45) 0%, rgba(8, 17, 32, 0.26) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  backdrop-filter: blur(8px) saturate(1.1);
+  -webkit-backdrop-filter: blur(8px) saturate(1.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* 折叠态：只剩一条通高竖条，三维画面仍全屏可见 */
+.hud-panel.collapsed { width: 24px; top: 60px; bottom: 14px; max-height: none; }
+.hud-panel.collapsed .panel-inner { display: none; }
+
+/* 折叠 / 展开竖条按钮（位于面板朝向屏幕中央的一侧） */
+.collapse-tab {
+  flex: 0 0 24px;
+  width: 24px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0;
+  color: #94a3b8;
+  cursor: pointer;
+  background: rgba(8, 17, 32, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+.hud-left .collapse-tab  { border-left: none; border-radius: 0 12px 12px 0; margin-left: -1px; }
+.hud-right .collapse-tab { border-right: none; border-radius: 12px 0 0 12px; margin-right: -1px; order: -1; }
+.hud-panel.collapsed .collapse-tab { border-radius: 12px; }
+.collapse-tab:hover { color: #22d3ee; background: rgba(34, 211, 238, 0.14); border-color: rgba(34, 211, 238, 0.55); }
+
+.tab-arrow { font-size: 18px; line-height: 1; }
+.tab-label {
+  font-size: 12px;
+  letter-spacing: 3px;
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+}
+
+/* 面板内部 */
+.dash-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.dash-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #67e8f9, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dash-sub {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #64748b;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.dash-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+.dash-clock-row { justify-content: space-between; margin-bottom: 12px; }
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.8);
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.dash-clock {
+  font-family: Consolas, monospace;
+  color: #67e8f9;
+  font-size: 13px;
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  flex: 1;
+  align-content: start;
+}
+
+/* 指标卡片：半透明玻璃，3D 画面可透见（紧凑排版，容纳实时数据多卡） */
+.metric-card {
+  background: rgba(10, 22, 40, 0.34);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 10px;
+  padding: 7px 10px 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 0;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+/* 告警：接口 alarmTag 非空时高亮 */
+.metric-card.alarm {
+  border-color: rgba(248, 113, 113, 0.6);
+  box-shadow: 0 0 12px rgba(248, 113, 113, 0.28);
+}
+.metric-card.alarm .metric-num {
+  color: #fca5a5;
+  text-shadow: 0 0 14px rgba(248, 113, 113, 0.55), 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* 面板顶部：实时数据更新状态行 */
+.dash-update {
+  font-size: 11px;
+  color: #7d96b4;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.metric-name { font-size: 11px; color: #a9bdd6; letter-spacing: 1px; }
+
+.metric-value {
+  margin: 3px 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.metric-num {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 17px;
+  font-weight: 700;
+  color: #67e8f9;
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.4), 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.metric-unit { font-size: 11px; color: #8aa0bd; }
+
+.metric-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(148, 163, 184, 0.18);
+  overflow: hidden;
+}
+
+.metric-bar-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #22d3ee, #38bdf8);
+  border-radius: 2px;
+  transition: width 0.8s ease;
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.6);
+}
+
+/* 窄屏：两侧面板收窄，隐藏英文副标签避免拥挤 */
+@media (max-width: 900px) {
+  .hud-panel { width: 210px; }
+  .dash-clock-row .dash-sub { display: none; }
+  .dash-clock-row { justify-content: flex-start; }
+  .view-buttons { max-width: 40vw; }
+  .view-btn { padding: 0 12px; font-size: 12px; height: 30px; }
+}

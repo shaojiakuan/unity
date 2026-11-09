@@ -1,0 +1,279 @@
+{
+  "assetCategories": {
+    "imperfection": {
+      "metal": {
+        "clean": {}
+      }
+    }
+  },
+  "averageColor": "#808080",
+  "categories": [
+    "surface",
+    "Imperfections",
+    "Spangle"
+  ],
+  "comp_version": 1,
+  "description": "",
+  "environment": {
+    "biome": "undefined",
+    "region": "undefined"
+  },
+  "highest_available_res": 8192,
+  "id": "tedwbh0c",
+  "json": {
+    "contentLength": 5849,
+    "uri": "tedwbh0c.json"
+  },
+  "maps": [
+    {
+      "averageColor": "#6A6A6A",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 120787024,
+      "maxIntensity": 170,
+      "mimeType": "image/x-exr",
+      "minIntensity": 46,
+      "name": "Gloss",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "gloss",
+      "uri": "tedwbh0c_8K_Gloss.exr"
+    },
+    {
+      "averageColor": "#6A6A6A",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 38905109,
+      "maxIntensity": 170,
+      "mimeType": "image/jpeg",
+      "minIntensity": 46,
+      "name": "Gloss",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "gloss",
+      "uri": "tedwbh0c_8K_Gloss.jpg"
+    },
+    {
+      "averageColor": "#959595",
+      "bitDepth": 32,
+      "colorSpace": "Linear",
+      "contentLength": 105551901,
+      "maxIntensity": 209,
+      "mimeType": "image/x-exr",
+      "minIntensity": 85,
+      "name": "Roughness",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "roughness",
+      "uri": "tedwbh0c_8K_Roughness.exr"
+    },
+    {
+      "averageColor": "#959595",
+      "bitDepth": 8,
+      "colorSpace": "Linear",
+      "contentLength": 38588918,
+      "maxIntensity": 209,
+      "mimeType": "image/jpeg",
+      "minIntensity": 85,
+      "name": "Roughness",
+      "physicalSize": "1x1",
+      "resolution": "8192x8192",
+      "type": "roughness",
+      "uri": "tedwbh0c_8K_Roughness.jpg"
+    }
+  ],
+  "meta": [
+    {
+      "key": "scanArea",
+      "name": "Scan Area",
+      "value": "1x1 m"
+    },
+    {
+      "key": "height",
+      "name": "Height",
+      "value": "20 m"
+    },
+    {
+      "key": "tileable",
+      "name": "Tileable",
+      "value": true
+    },
+    {
+      "key": "texelDensity",
+      "name": "Texel Density",
+      "value": "8192 px/m"
+    },
+    {
+      "key": "calibration",
+      "name": "Calibration",
+      "value": "GretagMacbeth ColorChecker Color Rendition Chart"
+    },
+    {
+      "key": "scanner",
+      "name": "Scanner",
+      "value": "MKX"
+    }
+  ],
+  "models": [],
+  "name": "Zinc Spangle",
+  "pack": null,
+  "physicalSize": null,
+  "points": 1,
+  "previews": {
+    "images": [
+      {
+        "contentLength": 147086,
+        "resolution": "360x360",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "tedwbh0c_Grid_360.png"
+      },
+      {
+        "contentLength": 198810,
+        "resolution": "420x420",
+        "tags": [
+          "thumb"
+        ],
+        "uri": "tedwbh0c_Grid_420.png"
+      },
+      {
+        "contentLength": 568088,
+        "resolution": "720x720",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "tedwbh0c_Grid_720.png"
+      },
+      {
+        "contentLength": 772472,
+        "resolution": "840x840",
+        "tags": [
+          "thumb",
+          "retina"
+        ],
+        "uri": "tedwbh0c_Grid_840.png"
+      },
+      {
+        "contentLength": 1561868,
+        "resolution": "1440x768",
+        "tags": [
+          "preview"
+        ],
+        "uri": "tedwbh0c_Popup_1440.png"
+      },
+      {
+        "contentLength": 2901717,
+        "resolution": "1920x1080",
+        "tags": [
+          "preview"
+        ],
+        "uri": "tedwbh0c_Popup_1920.png"
+      },
+      {
+        "contentLength": 6122575,
+        "resolution": "2880x1536",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "tedwbh0c_Popup_2880.png"
+      },
+      {
+        "contentLength": 11730619,
+        "resolution": "3840x2160",
+        "tags": [
+          "preview",
+          "retina"
+        ],
+        "uri": "tedwbh0c_Popup_3840.png"
+      }
+    ],
+    "relativeSize": "1x1",
+    "scaleReferences": []
+  },
+  "process_date": "2024-04-17 10:44:51",
+  "properties": [],
+  "referencePreviews": {
+    "maps": [],
+    "models": []
+  },
+  "references": [],
+  "revised": false,
+  "semanticTags": {
+    "3d_mesh": [],
+    "architectural_style": {},
+    "asset_type": "imperfection",
+    "contains": [
+      "spangle",
+      "zinc"
+    ],
+    "descriptive": [
+      "metal",
+      " spangle"
+    ],
+    "environment": [],
+    "industry": [
+      "archviz",
+      "games",
+      "VFX"
+    ],
+    "latin_name": [],
+    "locations": {
+      "Global": {
+        "Global": {}
+      }
+    },
+    "maxSize": 1,
+    "minSize": 1,
+    "name": "Zinc Spangle",
+    "resolution": 8192,
+    "season": [],
+    "subject_matter": "manmade",
+    "theme": [
+      ""
+    ]
+  },
+  "tags": [
+    "surface imperfection",
+    "archviz"
+  ],
+  "texelDensity": 8192,
+  "texture_type": "basic",
+  "ue_plugin_archives": [
+    {
+      "contentLength": 69609193,
+      "gltfVersion": "2.0",
+      "tier": 0,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_0/tedwbh0c_tier_0.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 19615662,
+      "gltfVersion": "2.0",
+      "tier": 1,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_1/tedwbh0c_tier_1.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 4983597,
+      "gltfVersion": "2.0",
+      "tier": 2,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_2/tedwbh0c_tier_2.zip",
+      "version": 1
+    },
+    {
+      "contentLength": 1663826,
+      "gltfVersion": "2.0",
+      "tier": 3,
+      "type": "gltf",
+      "uri": "ue_plugin_archives/tier_3/tedwbh0c_tier_3.zip",
+      "version": 1
+    }
+  ],
+  "version": 2
+}

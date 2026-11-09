@@ -1,0 +1,23 @@
+{
+    "m_Name": "Settings",
+    "m_Path": "ProjectSettings/Packages/com.unity.connect.share/Settings.json",
+    "m_Dictionary": {
+        "m_DictionaryValues": [
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "firstTime",
+                "value": "{\"m_Value\":false}"
+            },
+            {
+                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "autoPublish",
+                "value": "{\"m_Value\":true}"
+            },
+            {
+                "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "buildOutputDirList",
+                "value": "{\"m_Value\":\"E:/4SB/unityProject/蓟州校区锅炉孪生项目/biomass boiler jizhou/WebGL;E:/4SB/WebGLValidation/20261104-tank-treatment-demo/WebGL;E:/4SB/WebGLValidation/20261104-thermal-ripples-release/WebGL;E:/4SB/WebGLValidation/20261104-transparent-ripples-release/WebGL;E:/4SB/WebGLValidation/20261104-presentation-culling-release/WebGL;E:/4SB/WebGLValidation/20261103-water-flow-release/WebGL;E:/4SB/WebGLValidation/20261103-map-first-release/WebGL;E:/4SB/WebGLValidation/20261103-runtime-release/WebGL;E:/4SB/WebGLValidation/20261103-runtime-diagnostics-181612;E:/4SB/WebGLValidation/20261015-utf8\"}"
+            }
+        ]
+    }
+}

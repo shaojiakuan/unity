@@ -1,0 +1,128 @@
+
+# ========================================
+# Unity Generated Files
+# ========================================
+
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+/.utmp/
+
+# ========================================
+# Visual Studio / Rider / IDE
+# ========================================
+
+.vs/
+.idea/
+.gradle/
+.consulo/
+ExportedObj/
+
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.userprefs
+*.DotSettings.user
+*.pidb
+*.booproj
+*.svd
+*.opendb
+*.VC.db
+
+# ========================================
+# Temporary / Backup Files
+# ========================================
+
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*.swo
+*~
+
+*.blend1
+*.blend1.meta
+*.blend2
+*.blend2.meta
+
+# ========================================
+# Operating System
+# ========================================
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ========================================
+# Unity Generated Files
+# ========================================
+
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+sysinfo.txt
+mono_crash.*
+
+/[Aa]ssets/[Ss]ceneDependencyCache*
+/UIElementsSchema/
+
+# ========================================
+# Unity Auto-generated Plugins
+# ========================================
+
+/[Aa]ssets/Plugins/Editor/JetBrains*
+
+# ========================================
+# Addressables Generated Builds
+# ========================================
+
+/ServerData/
+/[Aa]ssets/StreamingAssets/aa*
+/[Aa]ssets/Addressables_Temp*
+/[Aa]ssets/AddressableAssetsData/link.xml*
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+
+# ========================================
+# Optional WebGL Build Exclusions
+# ========================================
+
+# Enable ONLY if WebGL builds are generated
+# separately and should not be committed.
+
+# /WebGL/Build/
+# /WebGL/TemplateData/
+# /test1/Build/
+
+# ========================================
+# Optional Deployment Archives
+# ========================================
+
+# Uncomment only if these are generated outputs
+# rather than required project dependencies.
+
+# *.unitypackage
+# *.apk
+# *.aab
+
+# ========================================
+# Important: DO NOT ignore these
+# ========================================
+
+# Assets/
+# Packages/
+# ProjectSettings/
+# *.meta
+# *.unity
+# *.prefab
+# *.mat
+# *.asset
